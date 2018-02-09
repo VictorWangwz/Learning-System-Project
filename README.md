@@ -7,4 +7,4 @@ September, 2017 – December, 2017
 - Replaced the LUT with a combination of five Back propagation neural networks and removed the state space reduction
 - Used the neural net based reinforcement learning to realize the significant raise of winning rate of my robot tank against another tank
 
-The implementation requires robocode environment. The [code](code) includes 3 parts, BP neural net, robot with LUT, robot with NN.
+The implementation requires robocode environment. The [code](code) includes 3 parts, [code/BpNeuralNet](BP neural net), [rlRobot](robot with LUT), [rlRobotNew](robot with NN).
