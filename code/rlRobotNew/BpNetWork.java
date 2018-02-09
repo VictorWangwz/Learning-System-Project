@@ -20,10 +20,10 @@ public class BpNetWork implements NeuralNetInterface {
 	double argMomentumTerm;
 	double argA;
 	double argB ;
-	public double[][] layer;//Éñ¾­ÍøÂç¸÷²ã½Úµã
-    public double[][] layError;//Éñ¾­ÍøÂç¸÷½ÚµãÎó²î
-    public double[][][] layerWeight;//¸÷²ã½ÚµãÈ¨ÖØ
-    public double[][][] layerWDelta;//¸÷²ã½ÚµãÈ¨ÖØ¶¯Á¿
+	public double[][] layer;
+    public double[][] layError;
+    public double[][][] layerWeight;
+    public double[][][] layerWDelta;
     
 	//double inputValue[]=new double[argNumInputs+1];
 	BpNetWork(){
@@ -178,14 +178,14 @@ public class BpNetWork implements NeuralNetInterface {
               double z = 0.0;
               for(int i=0;i<layError[l+1].length;i++){
                   z=z+l>0?layError[l+1][i]*layerWeight[l][j][i]:0;
-                  layerWDelta[l][j][i]= this.argMomentumTerm*layerWDelta[l][j][i]+this.argLearningRate*layError[l+1][i]*layer[l][j];//Òşº¬²ã¶¯Á¿µ÷Õû
+                  layerWDelta[l][j][i]= this.argMomentumTerm*layerWDelta[l][j][i]+this.argLearningRate*layError[l+1][i]*layer[l][j];//éšå«å±‚åŠ¨é‡è°ƒæ•´
                   layerWeight[l][j][i]+=layerWDelta[l][j][i];
                   if(j==layError[l].length-1){
-                      layerWDelta[l][j+1][i]= this.argMomentumTerm*layerWDelta[l][j+1][i]+this.argLearningRate*layError[l+1][i];//½Ø¾à¶¯Á¿µ÷Õû
+                      layerWDelta[l][j+1][i]= this.argMomentumTerm*layerWDelta[l][j+1][i]+this.argLearningRate*layError[l+1][i];//æˆªè·åŠ¨é‡è°ƒæ•´
                       layerWeight[l][j+1][i]+=layerWDelta[l][j+1][i];
                   }
               }
-              layError[l][j]=z*1/(this.argB-this.argA)*(layer[l][j]-argA)*(argB-layer[l][j]);//¼ÇÂ¼Îó²î
+              layError[l][j]=z*1/(this.argB-this.argA)*(layer[l][j]-argA)*(argB-layer[l][j]);//è®°å½•è¯¯å·®
           }
       
       }*/
